@@ -1,8 +1,12 @@
 'use strict';
 
-require('dotenv'); // correct order? Compare to other code
 const express = require('express');
+
+require('dotenv'); // correct order? Compare to other code
+const PORT = process.env.PORT || 3001;
+
 const cors = require('cors');
+app.use(cors());
 
 const weather = require('./modules/weather.js');
 const app = express();
@@ -19,4 +23,4 @@ function weatherHandler(request, response) {
   });
 }  
 
-app.listen(process.env.PORT, () => console.log(`Server up on ${process.env.PORT}`));
+app.listen(PORT, () => console.log(`Server up on ${process.env.PORT}`));
