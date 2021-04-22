@@ -1,15 +1,16 @@
 'use strict';
 
 const express = require('express');
+const app = express();
 
-require('dotenv'); // correct order? Compare to other code
+
+require('dotenv').config();
 const PORT = process.env.PORT || 3001;
 
 const cors = require('cors');
 app.use(cors());
 
 const weather = require('./modules/weather.js');
-const app = express();
 
 app.get('/weather', weatherHandler);
 
