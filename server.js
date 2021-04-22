@@ -1,11 +1,16 @@
 'use strict';
 
-require('dotenv');
 const express = require('express');
+const app = express();
+
+
+require('dotenv').config();
+const PORT = process.env.PORT || 3001;
+
 const cors = require('cors');
+app.use(cors());
 
 const weather = require('./modules/weather.js');
-const app = express();
 
 app.get('/weather', weatherHandler);
 
@@ -19,4 +24,4 @@ function weatherHandler(request, response) {
   });
 }  
 
-app.listen(process.env.PORT, () => console.log(`Server up on ${process.env.PORT}`));
+app.listen(PORT, () => console.log(`Server up on ${process.env.PORT}`));
