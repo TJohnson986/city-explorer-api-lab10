@@ -1,6 +1,6 @@
 'use strict';
 
-require('dotenv');
+require('dotenv'); // correct order? Compare to other code
 const express = require('express');
 const cors = require('cors');
 
